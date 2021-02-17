@@ -4,7 +4,7 @@ import {
     StyleSheet,
     DeviceEventEmitter,
 } from 'react-native';
-import { GestureContainer, TabViewContainerBaseProps, FitTabView, SlideFitTabView, CollapsibleHeaderProps, TABVIEW_TAB_ONCHANGE } from 'react-native-head-tab-view'
+import { GestureContainer, TabViewContainerBaseProps, FitTabView, SlideFitTabView, CollapsibleHeaderProps, EVENT_TAB_ONCHANGE } from 'react-native-head-tab-view'
 import ScrollableTabView, { DefaultTabBar, ScrollableTabViewProperties } from 'react-native-scrollable-tab-view'
 
 type ZTabViewProps = Omit<ScrollableTabViewProperties, 'ref'> & CollapsibleHeaderProps
@@ -57,7 +57,7 @@ class CollapsibleHeaderTabView extends React.Component<ForwardTabViewProps, { cu
         this.props.onChangeTab && this.props.onChangeTab(e)
         if (e.i === this.state.currentIndex) return;
         this.setState({ currentIndex: e.i })
-        DeviceEventEmitter.emit(TABVIEW_TAB_ONCHANGE, { index: e.i })
+        DeviceEventEmitter.emit(EVENT_TAB_ONCHANGE, { index: e.i })
     }
 
     _renderTabBar = (props: any) => {
@@ -128,7 +128,6 @@ class SlideTabView extends React.Component<ForwardTabViewProps, { currentIndex: 
         const { Component } = this.props
         return <Component
             ref={this.props.forwardedRef}
-            tabBarPosition={'overlayTop'}
             {...this.props}
             onChangeTab={this._onChangeTab}
         />

@@ -1,4 +1,4 @@
-# React Native Head Tab View
+# react-native-scrollable-tab-view-collapsible-header
 
 Extend [react-native-scrollable-tab-view](https://github.com/ptomasroos/react-native-scrollable-tab-view) to have shared collapsible headers
 
@@ -12,7 +12,7 @@ Please check the [base library](https://github.com/zyslife/react-native-head-tab
 
 ## Example   
 
-```tsx
+```js
 import * as React from 'react';
 import {
     View,
